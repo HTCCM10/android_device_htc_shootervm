@@ -64,6 +64,9 @@ on fs
     mkdir /vendor/etc 0771 system system
     symlink /system/vendor/etc/audio_effects.conf /vendor/etc/audio_effects.conf
 
+    # create directory for DRM plug-ins
+    mkdir /data/drm 0774 drm drm
+
 on post-fs-data
     # double check the perms and set owner
     chown root root /devlog
@@ -82,6 +85,10 @@ on boot
     chown system system /sys/devices/platform/msm_sdcc.2/polling
     chown system system /sys/devices/platform/msm_sdcc.3/polling
     chown system system /sys/devices/platform/msm_sdcc.4/polling
+
+    # Widevine DRM
+    chown drm system /dev/htcdrm
+    chmod 0660 /dev/htcdrm
 
     # bluetooth power up/down interface
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
@@ -319,6 +326,12 @@ service qmuxd /system/bin/qmuxd
 
 service netmgrd /system/bin/netmgrd
     class main
+
+service media /system/bin/mediaserver
+    class main
+    user media
+    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc cw_access oma_drm_group
+    ioprio rt 4
 
 service sequansd /system/bin/sequansd /etc/wimax/sequansd/sequansd_app.xml
     user root
