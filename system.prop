@@ -27,6 +27,7 @@ gsm.operator.numeric = 310120
 gsm.operator.iso-country = us
 ro.cdma.home.operator.numeric=310120
 ro.cdma.home.operator.alpha=Virgin Mobile
+ro.ril.radio.svn=1
 
 # For QC perf binary hooks
 # src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
