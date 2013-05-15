@@ -1,0 +1,11 @@
+#!/system/bin/sh
+
+
+#Block access to Wimax Log
+
+rm  /data/wimax/log
+mkdir /data/wimax/log
+chattr +i /data/wimax/log
+
+
+

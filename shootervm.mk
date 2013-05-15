@@ -22,6 +22,10 @@ $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/shootervm/overlay
 
+# init,d
+PRODUCT_COPY_FILES += \
+device/htc/shootervm/prebuilt/wimax:system/etc/init.d/wimax
+
 # ramdisk stuffs
 PRODUCT_COPY_FILES += \
     device/htc/shootervm/ramdisk/init.shooter.rc:root/init.shooter.rc \
