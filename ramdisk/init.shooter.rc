@@ -306,7 +306,7 @@ on property:init.svc.bootanim=stopped
 	
     # Protect more low memory pages
     write /proc/sys/vm/min_free_kbytes 4096
-    start mpdecision
+
 
 service htc_ebdlogd /system/bin/htc_ebdlogd -s -k -P 7 -n 10 -N 10
     user root
