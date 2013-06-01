@@ -297,9 +297,7 @@ on property:init.svc.bootanim=stopped
     write /sys/devices/platform/panel_3d/3D_mode 0
     start qcom-post-boot
 
-	write /sys/module/lowmemorykiller/parameters/check_filepages 1
-	
-	
+	write /sys/module/lowmemorykiller/parameters/check_filepages 1	
 	write /sys/module/lowmemorykiller/parameters/adj 0,4,6,8,14,15
 	write /sys/module/lowmemorykiller/parameters/minfree 2048,3072,4096,6144,41472,50944
 	write /sys/module/lowmemorykiller/parameters/minfile 2048,3072,4096,6144,41472,50944
@@ -338,12 +336,6 @@ service qmuxd /system/bin/qmuxd
 
 service netmgrd /system/bin/netmgrd
     class main
-
-service media /system/bin/mediaserver
-    class main
-    user media
-    group audio camera inet net_bt net_bt_admin net_bw_acct drmrpc cw_access oma_drm_group
-    ioprio rt 4
 
 service sequansd /system/bin/sequansd /etc/wimax/sequansd/sequansd_app.xml
     user root
