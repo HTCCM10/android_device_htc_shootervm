@@ -297,15 +297,6 @@ on property:init.svc.bootanim=stopped
     write /sys/devices/platform/panel_3d/3D_mode 0
     start qcom-post-boot
 
-	write /sys/module/lowmemorykiller/parameters/check_filepages 1	
-	write /sys/module/lowmemorykiller/parameters/adj 0,4,6,8,14,15
-	write /sys/module/lowmemorykiller/parameters/minfree 2048,3072,4096,6144,41472,50944
-	write /sys/module/lowmemorykiller/parameters/minfile 2048,3072,4096,6144,41472,50944
-	
-    # Protect more low memory pages
-    write /proc/sys/vm/min_free_kbytes 4096
-
-
 service htc_ebdlogd /system/bin/htc_ebdlogd -s -k -P 7 -n 10 -N 10
     user root
     disabled
