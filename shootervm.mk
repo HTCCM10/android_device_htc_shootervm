@@ -71,9 +71,10 @@ PRODUCT_COPY_FILES += \
     device/htc/shootervm/dsp/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
     device/htc/shootervm/dsp/soundimage/srs_global.cfg:system/etc/soundimage/srs_global.cfg
 
-# misc
+# configs
 PRODUCT_COPY_FILES += \
     device/htc/shootervm/configs/vold.fstab:system/etc/vold.fstab \
+    device/htc/shootervm/configs/thermald.conf:system/etc/thermald.conf \
     device/htc/shootervm/configs/apns-conf.xml:system/etc/apns-conf.xml \
     device/htc/shootervm/configs/voicemail-conf.xml:system/etc/voicemail-conf.xml
 
