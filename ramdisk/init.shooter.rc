@@ -277,10 +277,10 @@ service htcbatt /system/bin/htcbatt
     class main
     user root
 
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp --single_core_while_panel_off
-    class main
-    user root
-    disabled
+#service mpdecision /system/bin/mpdecision --no_sleep --avg_comp --single_core_while_panel_off
+#    class main
+#    user root
+#    disabled
 
 service thermald /system/bin/thermald
     class main
@@ -288,10 +288,18 @@ service thermald /system/bin/thermald
     group root
     disabled
 
+	write /sys/module/lowmemorykiller/parameters/check_filepages 1
+	write /sys/module/lowmemorykiller/parameters/adj 0,4,6,8,14,15
+	write /sys/module/lowmemorykiller/parameters/minfree 2048,3072,4096,6144,41472,50944
+	write /sys/module/lowmemorykiller/parameters/minfile 2048,3072,4096,6144,41472,50944
+	
+    # Protect more low memory pages
+    write /proc/sys/vm/min_free_kbytes 4096
+
 service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
-    class main
     user root
     disabled
+    oneshot
 
 on property:init.svc.bootanim=stopped
     write /sys/devices/platform/panel_3d/3D_mode 0
@@ -404,8 +412,13 @@ service getWMXPropd /system/bin/getWiMAXPropDaemond
     group root
     oneshot
 
+#service dmagent /system/bin/dmagent -N -P19 -VSY
+#    class main
+#    socket dmagent stream 660 root radio
+#    user root
+#    group radio cache inet misc
+
 service dmagent /system/bin/dmagent -N -P19 -VSY
-    class main
     socket dmagent stream 660 root radio
     user root
     group radio cache inet misc
