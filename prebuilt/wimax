@@ -1,12 +1,17 @@
 #!/system/bin/sh
 
 
-#Block access to Wimax Log
+#Remove Wimax Log
 
-chattr -i /data/wimax/log
-rm -rf /data/wimax/log
-mkdir /data/wimax/log
-chattr +i /data/wimax/log
+if [ -d /data/wimax/log ];
+then
+rm -R /data/wimax/log;
+fi;
+
+if [ ! -e /data/wimax/log ];
+then
+touch /data/wimax/log;
+fi;
 
 
 
