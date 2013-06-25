@@ -74,6 +74,7 @@ PRODUCT_COPY_FILES += \
 # configs
 PRODUCT_COPY_FILES += \
     device/htc/shootervm/configs/vold.fstab:system/etc/vold.fstab \
+    device/htc/shootervm/configs/gps.conf_US_SUPL:system/etc/gps.conf \
     device/htc/shootervm/configs/thermald.conf:system/etc/thermald.conf \
     device/htc/shootervm/configs/apns-conf.xml:system/etc/apns-conf.xml \
     device/htc/shootervm/configs/voicemail-conf.xml:system/etc/voicemail-conf.xml
