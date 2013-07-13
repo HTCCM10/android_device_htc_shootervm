@@ -40,8 +40,6 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := shooter
 
 BOARD_USE_NEW_LIBRIL_HTC := true
 
-TARGET_SPECIFIC_HEADER_PATH := device/htc/shootervm/include
-
 # 3D Support
 TARGET_HARDWARE_3D := true
 
